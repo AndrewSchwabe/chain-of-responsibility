@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ResponsibilityChain.Base
 {
-    public class HandlerOutputBase
+    public abstract class HandlerOutputBase
     {
     }
 }

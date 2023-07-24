@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using ResponsibilityChain.Base;
+using ResponsibilityChain.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +11,11 @@ namespace ResponsibilityChain.Extension
 {
     public static class ServiceCollectionExtensions
     {
-        public static void AddChain(this IServiceCollection serviceCollection)
+        public static IServiceCollection AddChain<TService, TImplementation>(this IServiceCollection serviceCollection)
+            where TService : IChain
         {
+            serviceCollection.AddTransient(typeof(TService), typeof(TImplementation));
+            return serviceCollection;
         }
     }
 }

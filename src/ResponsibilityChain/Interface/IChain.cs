@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ResponsibilityChain.Base
+namespace ResponsibilityChain.Interface
 {
-    public abstract class HandlerInputBase
+    public interface IChain<TIn, TOut> : IChain
     {
+    }
+    public interface IChain
+    { 
     }
 }
